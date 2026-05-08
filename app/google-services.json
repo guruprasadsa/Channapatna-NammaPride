@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "776783484943",
+    "project_id": "channapatna-namma-pride-9324b",
+    "storage_bucket": "channapatna-namma-pride-9324b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776783484943:android:d47a4bc788a1d8425f6b7a",
+        "android_client_info": {
+          "package_name": "com.example.channapatna_namma_pride"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV3aVuJuVX70qgfTk9fxnwpvqYQ0HoFgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

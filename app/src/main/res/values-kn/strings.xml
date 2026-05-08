@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">ಚನ್ನಪಟ್ಟಣ-ನಮ್ಮ ಹೆಮ್ಮೆ</string>
+
+    <!-- ─── Splash Screen ─── -->
+    <string name="splash_title_1">ಚನ್ನಪಟ್ಟಣ–</string>
+    <string name="splash_title_2">ನಮ್ಮ ಹೆಮ್ಮೆ</string>
+    <string name="splash_tagline">ಅಸಲಿತನ ಮತ್ತು ಕಥೆ ಹೇಳುವಿಕೆ</string>
+    <string name="splash_loading">ಅನುಭವವನ್ನು ರಚಿಸಲಾಗುತ್ತಿದೆ…</string>
+
+    <!-- ─── Brand Header ─── -->
+    <string name="brand_line_1">ಚನ್ನಪಟ್ಟಣ -</string>
+    <string name="brand_line_2">ನಮ್ಮ ಹೆಮ್ಮೆ</string>
+    <string name="language_label">ಕನ್ನಡ ▾</string>
+
+    <!-- ─── Home Screen ─── -->
+    <string name="home_hero_title">ಮರದ ಕಥೆಯನ್ನು\nಸಂಭ್ರಮಿಸಿ</string>
+    <string name="home_hero_subtitle">ಮರದ ಕಥೆಯನ್ನು ಆಚರಿಸಿ</string>
+    <string name="verify_my_toy">ನನ್ನ ಗೊಂಬೆಯನ್ನು ಪರಿಶೀಲಿಸಿ</string>
+    <string name="verify_my_toy_desc">ನಿಮ್ಮ ಚನ್ನಪಟ್ಟಣ ಕರಕುಶಲತೆಯ\nಅಸಲಿತನವನ್ನು ಖಚಿತಪಡಿಸಿ.</string>
+    <string name="scan_now">ಈಗ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
+    <string name="tile_meet_maker">ತಯಾರಕರನ್ನು\nಭೇಟಿ ಮಾಡಿ</string>
+    <string name="tile_how_its_made">ಇದನ್ನು ಹೇಗೆ\nತಯಾರಿಸುತ್ತಾರೆ</string>
+    <string name="tile_toy_catalog">ಗೊಂಬೆ\nಪಟ್ಟಿ</string>
+    <string name="tile_workshop_map">ಕಾರ್ಯಾಗಾರ\nನಕ್ಷೆ</string>
+    <string name="support_local_artisans">ಸ್ಥಳೀಯ ಕುಶಲಕರ್ಮಿಗಳನ್ನು ಬೆಂಬಲಿಸಿ</string>
+
+    <!-- ─── Verify / Result Screen ─── -->
+    <string name="verify_title">ನನ್ನ ಗೊಂಬೆಯನ್ನು ಪರಿಶೀಲಿಸಿ</string>
+    <string name="verify_instruction">ನಿಮ್ಮ ಚನ್ನಪಟ್ಟಣ ಗೊಂಬೆಯ ಮೇಲಿರುವ\n6-ಅಂಕಿಯ ID ನಮೂದಿಸಿ.</string>
+    <string name="verify_button">ಅಸಲಿತನ ಪರಿಶೀಲಿಸಿ</string>
+    <string name="authentic_badge">ಅಸಲಿ ಚನ್ನಪಟ್ಟಣ</string>
+    <string name="gi_tag_label">ಜಿಐ ಟ್ಯಾಗ್ ಸಂ. %1$s</string>
+    <string name="master_maker">ಮಾಸ್ಟರ್ ತಯಾರಕ</string>
+    <string name="view_artisan_profile">ಕುಶಲಕರ್ಮಿಯ ಪ್ರೊಫೈಲ್ ನೋಡಿ</string>
+    <string name="watch_toy_story">ಗೊಂಬೆಯ ಕಥೆ ನೋಡಿ</string>
+
+    <!-- ─── Meet the Maker Screen ─── -->
+    <string name="meet_the_maker">ತಯಾರಕರನ್ನು ಭೇಟಿ ಮಾಡಿ</string>
+    <string name="discover_workshops">ಚನ್ನಪಟ್ಟಣದಲ್ಲಿ ಕಾರ್ಯಾಗಾರ ಸ್ಥಳಗಳನ್ನು ಅನ್ವೇಷಿಸಿ</string>
+    <string name="nearby_workshops">ಹತ್ತಿರದ ಕಾರ್ಯಾಗಾರಗಳು</string>
+    <string name="workshops_found">%1$d ಕಂಡುಬಂದಿದೆ</string>
+    <string name="finding_workshops">ಕಾರ್ಯಾಗಾರಗಳನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ…</string>
+    <string name="by_artisan">%1$s ಅವರಿಂದ</string>
+
+    <!-- ─── How It\'s Made Screen ─── -->
+    <string name="how_its_made">ಇದನ್ನು ಹೇಗೆ ತಯಾರಿಸುತ್ತಾರೆ</string>
+    <string name="hale_wood_process">ಹಾಲೆ ಮರದ ಪ್ರಕ್ರಿಯೆ</string>
+    <string name="hale_wood_desc">ನೈಸರ್ಗಿಕ ಹಾಲೆ ಮರ ಮತ್ತು ತರಕಾರಿ ಬಣ್ಣಗಳನ್ನು ಬಳಸಿ ಅಸಲಿ ಚನ್ನಪಟ್ಟಣ ಗೊಂಬೆಗಳನ್ನು ತಯಾರಿಸುವ ಸಾಂಪ್ರದಾಯಿಕ 5-ಹಂತದ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಅನ್ವೇಷಿಸಿ.</string>
+    <string name="step_1_title">ಹಾಲೆ ಮರವನ್ನು ಆರಿಸುವುದು</string>
+    <string name="step_1_desc">ಕುಶಲಕರ್ಮಿಗಳು ಮೃದುವಾದ ಮತ್ತು ಸುರಕ್ಷಿತ ಗುಣಲಕ್ಷಣಗಳಿಗೆ ಹೆಸರಾದ ಹಾಲೆ ಮರವನ್ನು (ರೈಟಿಯಾ ಟಿಂಕ್ಟೋರಿಯಾ) ಕೊಯ್ಲು ಮಾಡುತ್ತಾರೆ. ತೇವಾಂಶವನ್ನು ತೆಗೆಯಲು ಮರವನ್ನು ತಿಂಗಳುಗಳ ಕಾಲ ಒಣಗಿಸಲಾಗುತ್ತದೆ.</string>
+    <string name="step_2_title">ಕೊರಡಿನ ಮೇಲೆ ತಿರುಗಿಸುವುದು</string>
+    <string name="step_2_desc">ಒಣಗಿಸಿದ ಮರವನ್ನು ನಿರ್ವಹಿಸಬಹುದಾದ ತುಂಡುಗಳಾಗಿ ಕತ್ತರಿಸಿ ಕೊರಡಿನ ಮೇಲೆ ಆಕಾರ ನೀಡಲಾಗುತ್ತದೆ. ಮರ ವೇಗವಾಗಿ ತಿರುಗುವಾಗ ಕುಶಲಕರ್ಮಿಗಳು ಕೈ ಉಳಿಗಳನ್ನು ಬಳಸಿ ಸಂಕೀರ್ಣ ವಿನ್ಯಾಸಗಳನ್ನು ಕೆತ್ತುತ್ತಾರೆ.</string>
+    <string name="step_3_title">ನೈಸರ್ಗಿಕ ಅರಗನ್ನು ಹಚ್ಚುವುದು</string>
+    <string name="step_3_desc">ಬಣ್ಣದ ಅರಗಿನ ಕಡ್ಡಿಯನ್ನು ತಿರುಗುತ್ತಿರುವ ಮರಕ್ಕೆ ಒತ್ತಲಾಗುತ್ತದೆ. ಘರ್ಷಣೆಯು ಅರಗನ್ನು ಕರಗಿಸಿ, ಹೊಳೆಯುವ, ವಿಷರಹಿತ ಮತ್ತು ಏಕರೂಪದ ಲೇಪನವನ್ನು ಸೃಷ್ಟಿಸುತ್ತದೆ.</string>
+    <string name="step_4_title">ತಾಳೆ ಎಲೆಗಳಿಂದ ಹೊಳಪು ಕೊಡುವುದು</string>
+    <string name="step_4_desc">ವಿಶೇಷ ಹೊಳಪನ್ನು ಸಾಧಿಸಲು, ಕುಶಲಕರ್ಮಿಗಳು ಒಣಗಿದ ಮೊಗಲಿ ಎಲೆಗಳನ್ನು ತಿರುಗುತ್ತಿರುವ ಗೊಂಬೆಗೆ ಒತ್ತುತ್ತಾರೆ. ಈ ನೈಸರ್ಗಿಕ ಹೊಳಪು ತಂತ್ರವು ಗೊಂಬೆಗೆ ಅದರ ಪ್ರಕಾಶಮಾನ ಹೊಳಪನ್ನು ನೀಡುತ್ತದೆ.</string>
+    <string name="step_5_title">ಜೋಡಣೆ ಮತ್ತು ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ</string>
+    <string name="step_5_desc">ಅರಗು ಲೇಪಿತ ಭಾಗಗಳನ್ನು ಎಚ್ಚರಿಕೆಯಿಂದ ಜೋಡಿಸಲಾಗುತ್ತದೆ. ಅಂತಿಮ ವಿವರಗಳನ್ನು ಸೇರಿಸಿ, ಸುಂದರವಾದ, ಸುರಕ್ಷಿತ ಮತ್ತು ಪರಂಪರೆ-ಸಮೃದ್ಧ ಮರದ ಗೊಂಬೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಲಾಗುತ್ತದೆ.</string>
+
+    <!-- ─── Toy Catalog Screen ─── -->
+    <string name="toy_catalog">ಗೊಂಬೆ ಪಟ್ಟಿ</string>
+    <string name="loading_catalog">ಪಟ್ಟಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ…</string>
+    <string name="no_toys_in_category">ಈ ವಿಭಾಗದಲ್ಲಿ ಇನ್ನೂ ಗೊಂಬೆಗಳಿಲ್ಲ</string>
+
+    <!-- ─── Settings Screen ─── -->
+    <string name="settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+    <string name="preferences">ಆದ್ಯತೆಗಳು</string>
+    <string name="language">ಭಾಷೆ</string>
+    <string name="language_english">English</string>
+    <string name="language_kannada">ಕನ್ನಡ (ಕನ್ನಡ)</string>
+    <string name="notifications">ಅಧಿಸೂಚನೆಗಳು</string>
+    <string name="notifications_subtitle">ಹೊಸ ಗೊಂಬೆಗಳ ನವೀಕರಣಗಳನ್ನು ಪಡೆಯಿರಿ</string>
+    <string name="about">ಕುರಿತು</string>
+    <string name="about_app">ಚನ್ನಪಟ್ಟಣ ನಮ್ಮ ಹೆಮ್ಮೆ ಬಗ್ಗೆ</string>
+    <string name="privacy_policy">ಗೌಪ್ಯತಾ ನೀತಿ</string>
+    <string name="version">ಆವೃತ್ತಿ 1.0.0</string>
+
+    <!-- ─── Artisan Profile Screen ─── -->
+    <string name="master_craftsman">ಮಾಸ್ಟರ್\nಕುಶಲಕರ್ಮಿ:</string>
+    <string name="the_story">ಕಥೆ</string>
+    <string name="specialties">ವಿಶೇಷತೆಗಳು</string>
+    <string name="workshop_location">ಕಾರ್ಯಾಗಾರ ಸ್ಥಳ</string>
+    <string name="get_directions">ದಿಕ್ಕುಗಳನ್ನು ಪಡೆಯಿರಿ</string>
+    <string name="call_the_master">ಮಾಸ್ಟರ್‌ಗೆ ಕರೆ ಮಾಡಿ</string>
+    <string name="artisan_photo">ಕುಶಲಕರ್ಮಿಯ ಫೋಟೋ</string>
+
+    <!-- ─── Common ─── -->
+    <string name="loading">ಲೋಡ್ ಆಗುತ್ತಿದೆ…</string>
+    <string name="retry">ಮರುಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="back">ಹಿಂದೆ</string>
+    <string name="error_label">ದೋಷ</string>
+    <string name="nothing_here_yet">ಇಲ್ಲಿ ಇನ್ನೂ ಏನೂ ಇಲ್ಲ</string>
+    <string name="heritage_toys">ಪರಂಪರೆಯ ಗೊಂಬೆಗಳು</string>
+</resources>

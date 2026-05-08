@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Channapatna-Namma Pride</string>
+
+    <!-- ─── Splash Screen ─── -->
+    <string name="splash_title_1">Channapatna–</string>
+    <string name="splash_title_2">Namma Pride</string>
+    <string name="splash_tagline">Authenticity and Storytelling</string>
+    <string name="splash_loading">CRAFTING EXPERIENCE…</string>
+
+    <!-- ─── Brand Header ─── -->
+    <string name="brand_line_1">CHANNAPATNA -</string>
+    <string name="brand_line_2">NAMMA PRIDE</string>
+    <string name="language_label">English ▾</string>
+
+    <!-- ─── Home Screen ─── -->
+    <string name="home_hero_title">Marada katheyannu\nsambhramisi</string>
+    <string name="home_hero_subtitle">Celebrate the Story of Wood</string>
+    <string name="verify_my_toy">Verify My Toy</string>
+    <string name="verify_my_toy_desc">Ensure the authenticity of your\nChannapatna craft.</string>
+    <string name="scan_now">SCAN NOW</string>
+    <string name="tile_meet_maker">Meet the\nMaker</string>
+    <string name="tile_how_its_made">How It\'s\nMade</string>
+    <string name="tile_toy_catalog">Toy\nCatalog</string>
+    <string name="tile_workshop_map">Workshop\nMap</string>
+    <string name="support_local_artisans">Support Local Artisans</string>
+
+    <!-- ─── Verify / Result Screen ─── -->
+    <string name="verify_title">Verify My Toy</string>
+    <string name="verify_instruction">Enter the 6-digit ID found on your\nChannapatna toy to trace its heritage.</string>
+    <string name="verify_button">VERIFY AUTHENTICITY</string>
+    <string name="authentic_badge">AUTHENTIC CHANNAPATNA</string>
+    <string name="gi_tag_label">GI TAG NO. %1$s</string>
+    <string name="master_maker">MASTER MAKER</string>
+    <string name="view_artisan_profile">VIEW ARTISAN PROFILE</string>
+    <string name="watch_toy_story">WATCH THE TOY\'S STORY</string>
+
+    <!-- ─── Meet the Maker Screen ─── -->
+    <string name="meet_the_maker">Meet the Maker</string>
+    <string name="discover_workshops">Discover workshop locations in Channapatna</string>
+    <string name="nearby_workshops">Nearby Workshops</string>
+    <string name="workshops_found">%1$d found</string>
+    <string name="finding_workshops">Finding workshops…</string>
+    <string name="by_artisan">By %1$s</string>
+
+    <!-- ─── How It\'s Made Screen ─── -->
+    <string name="how_its_made">How It\'s Made</string>
+    <string name="hale_wood_process">The Hale Wood Process</string>
+    <string name="hale_wood_desc">Discover the traditional 5-step process of crafting authentic Channapatna toys using natural Hale wood and vegetable dyes.</string>
+    <string name="step_1_title">Selecting Hale Wood</string>
+    <string name="step_1_desc">Artisans harvest Hale wood (Wrightia tinctoria), known for its soft texture and safe properties. The wood is seasoned for months to remove moisture.</string>
+    <string name="step_2_title">Turning on the Lathe</string>
+    <string name="step_2_desc">The seasoned wood is cut into manageable pieces and shaped on a lathe. Artisans use hand-held chisels to carve intricate designs while the wood spins rapidly.</string>
+    <string name="step_3_title">Applying Natural Lac</string>
+    <string name="step_3_desc">A stick of colored lac is pressed against the spinning wood. The friction melts the lac, creating a vibrant, non-toxic, and uniform coating.</string>
+    <string name="step_4_title">Polishing with Palm Leaves</string>
+    <string name="step_4_desc">To achieve the signature glossy finish, artisans press dried screw pine (Mogali) leaves against the spinning toy. This natural polishing technique gives the toy its radiant shine.</string>
+    <string name="step_5_title">Assembly and Finishing</string>
+    <string name="step_5_desc">The individual lacquered parts are carefully assembled. Any final details are added, resulting in a beautiful, safe, and heritage-rich wooden toy.</string>
+
+    <!-- ─── Toy Catalog Screen ─── -->
+    <string name="toy_catalog">Toy Catalog</string>
+    <string name="loading_catalog">Loading catalog…</string>
+    <string name="no_toys_in_category">No toys in this category yet</string>
+
+    <!-- ─── Settings Screen ─── -->
+    <string name="settings">Settings</string>
+    <string name="preferences">Preferences</string>
+    <string name="language">Language</string>
+    <string name="language_english">English</string>
+    <string name="language_kannada">Kannada (ಕನ್ನಡ)</string>
+    <string name="notifications">Notifications</string>
+    <string name="notifications_subtitle">Receive updates on new toys</string>
+    <string name="about">About</string>
+    <string name="about_app">About Channapatna Namma Pride</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="version">Version 1.0.0</string>
+
+    <!-- ─── Artisan Profile Screen ─── -->
+    <string name="master_craftsman">Master\nCraftsman:</string>
+    <string name="the_story">The Story</string>
+    <string name="specialties">Specialties</string>
+    <string name="workshop_location">Workshop Location</string>
+    <string name="get_directions">GET DIRECTIONS</string>
+    <string name="call_the_master">CALL THE MASTER</string>
+    <string name="artisan_photo">Artisan Photo</string>
+
+    <!-- ─── Common ─── -->
+    <string name="loading">Loading…</string>
+    <string name="retry">Retry</string>
+    <string name="back">Back</string>
+    <string name="error_label">Error</string>
+    <string name="nothing_here_yet">Nothing here yet</string>
+    <string name="heritage_toys">Heritage Toys</string>
+</resources>
