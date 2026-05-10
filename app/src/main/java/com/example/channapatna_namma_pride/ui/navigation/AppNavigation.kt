@@ -26,20 +26,23 @@ import com.example.channapatna_namma_pride.ui.screens.*
 import com.example.channapatna_namma_pride.ui.theme.*
 import com.example.channapatna_namma_pride.viewmodel.VerificationViewModel
 
+import androidx.compose.ui.res.stringResource
+import com.example.channapatna_namma_pride.R
+
 /**
  * Route definitions. Bottom-bar items have icons; detail-only screens do not.
  */
-sealed class Screen(val route: String, val title: String, val icon: ImageVector? = null) {
-    object Splash : Screen("splash", "Splash")
-    object Home : Screen("home", "Home", Icons.Filled.Home)
-    object Verify : Screen("verify", "Verify", Icons.Filled.Search)
-    object Map : Screen("map", "Maker", Icons.Filled.LocationOn)
-    object Catalog : Screen("catalog", "Catalog", Icons.AutoMirrored.Filled.List)
-    object Settings : Screen("settings", "More", Icons.Filled.Settings)
-    object ArtisanProfile : Screen("artisan/{artisanId}", "Artisan") {
+sealed class Screen(val route: String, val titleResId: Int? = null, val icon: ImageVector? = null) {
+    object Splash : Screen("splash")
+    object Home : Screen("home", R.string.nav_home, Icons.Filled.Home)
+    object Verify : Screen("verify", R.string.nav_verify, Icons.Filled.Search)
+    object Map : Screen("map", R.string.nav_maker, Icons.Filled.LocationOn)
+    object Catalog : Screen("catalog", R.string.nav_catalog, Icons.AutoMirrored.Filled.List)
+    object Settings : Screen("settings", R.string.nav_more, Icons.Filled.Settings)
+    object ArtisanProfile : Screen("artisan/{artisanId}") {
         fun createRoute(artisanId: String) = "artisan/$artisanId"
     }
-    object HowItsMade : Screen("how_its_made", "How It's Made")
+    object HowItsMade : Screen("how_its_made")
 }
 
 private val bottomBarScreens = listOf(
@@ -70,17 +73,18 @@ fun AppNavigation() {
                     bottomBarScreens.forEach { screen ->
                         val selected = navBackStackEntry?.destination?.hierarchy
                             ?.any { it.route == screen.route } == true
+                        val title = screen.titleResId?.let { stringResource(it) } ?: ""
 
                         NavigationBarItem(
                             icon = {
                                 Icon(
                                     screen.icon!!,
-                                    contentDescription = screen.title
+                                    contentDescription = title
                                 )
                             },
                             label = {
                                 Text(
-                                    screen.title,
+                                    title,
                                     style = MaterialTheme.typography.labelSmall
                                 )
                             },
@@ -167,7 +171,12 @@ fun AppNavigation() {
                 ArtisanProfileScreen(
                     artisanId = artisanId,
                     viewModel = artisanViewModel,
-                    onNavigateBack = { navController.popBackStack() }
+                    onNavigateBack = { navController.popBackStack() },
+                    onNavigateToCatalog = {
+                        navController.navigate(Screen.Catalog.route) {
+                            launchSingleTop = true
+                        }
+                    }
                 )
             }
 
