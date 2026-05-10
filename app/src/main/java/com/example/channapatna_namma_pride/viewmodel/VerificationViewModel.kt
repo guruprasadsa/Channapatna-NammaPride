@@ -24,8 +24,8 @@ class VerificationViewModel : ViewModel() {
     private val _verificationResult = MutableStateFlow<Resource<Toy>?>(null)
     val verificationResult: StateFlow<Resource<Toy>?> = _verificationResult.asStateFlow()
 
-    private val _inputError = MutableStateFlow<String?>(null)
-    val inputError: StateFlow<String?> = _inputError.asStateFlow()
+    private val _inputError = MutableStateFlow<Int?>(null)
+    val inputError: StateFlow<Int?> = _inputError.asStateFlow()
 
     /**
      * Updates the toy ID input. Only digits are accepted, max 6 characters.
@@ -46,15 +46,15 @@ class VerificationViewModel : ViewModel() {
         // Input validation
         when {
             id.isEmpty() -> {
-                _inputError.value = "Please enter a toy ID"
+                _inputError.value = com.example.channapatna_namma_pride.R.string.error_enter_toy_id
                 return
             }
             id.length != 6 -> {
-                _inputError.value = "ID must be exactly 6 digits"
+                _inputError.value = com.example.channapatna_namma_pride.R.string.error_id_digits
                 return
             }
             !id.all { it.isDigit() } -> {
-                _inputError.value = "ID must contain only digits"
+                _inputError.value = com.example.channapatna_namma_pride.R.string.error_id_digits
                 return
             }
         }
