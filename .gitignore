@@ -39,3 +39,7 @@ logcat_output_utf8.txt
 *.tmp
 *.zip
 *.bak
+*usecase_diagram.png
+*PRD.md
+*verification_state_diagram.png
+*er_diagram.png
