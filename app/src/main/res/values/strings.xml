@@ -11,18 +11,36 @@
     <string name="brand_line_1">CHANNAPATNA -</string>
     <string name="brand_line_2">NAMMA PRIDE</string>
     <string name="language_label">English ▾</string>
+    <string name="language_display_name">English</string>
 
     <!-- ─── Home Screen ─── -->
-    <string name="home_hero_title">Marada katheyannu\nsambhramisi</string>
-    <string name="home_hero_subtitle">Celebrate the Story of Wood</string>
+    <string name="home_hero_title">Celebrate the Story of Wood</string>
+    <string name="home_hero_subtitle">Discover the magic of Gombegala Ooru.</string>
     <string name="verify_my_toy">Verify My Toy</string>
     <string name="verify_my_toy_desc">Ensure the authenticity of your\nChannapatna craft.</string>
-    <string name="scan_now">SCAN NOW</string>
+    <string name="scan_now">VERIFY NOW</string>
     <string name="tile_meet_maker">Meet the\nMaker</string>
     <string name="tile_how_its_made">How It\'s\nMade</string>
     <string name="tile_toy_catalog">Toy\nCatalog</string>
     <string name="tile_workshop_map">Workshop\nMap</string>
     <string name="support_local_artisans">Support Local Artisans</string>
+
+    <!-- GI Tag Section -->
+    <string name="gi_tag_title">GI Tag No. 23</string>
+    <string name="gi_tag_description">Authentic Channapatna Craftsmanship. Protected heritage, ensuring genuine quality since 2005.</string>
+
+    <!-- Craft Journey Section -->
+    <string name="craft_journey_title">The Craft Journey</string>
+    <string name="craft_step_1_title">1. Select</string>
+    <string name="craft_step_1_desc">Sourcing seasoned Hale wood for durability.</string>
+    <string name="craft_step_2_title">2. Carve</string>
+    <string name="craft_step_2_desc">Precision shaping on the traditional lathe.</string>
+    <string name="craft_step_3_title">3. Color</string>
+    <string name="craft_step_3_desc">Applying vibrant, natural vegetable dyes.</string>
+
+    <!-- New Arrivals Section -->
+    <string name="new_arrivals">New Arrivals</string>
+    <string name="view_all">View All</string>
 
     <!-- ─── Verify / Result Screen ─── -->
     <string name="verify_title">Verify My Toy</string>
@@ -72,8 +90,11 @@
     <string name="notifications_subtitle">Receive updates on new toys</string>
     <string name="about">About</string>
     <string name="about_app">About Channapatna Namma Pride</string>
+    <string name="about_app_description">Channapatna Namma Pride celebrates the rich heritage of Channapatna\'s GI-tagged wooden lacquerware tradition. This app helps you verify the authenticity of toys, discover artisans, and explore the ancient craft journey.</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="version">Version 1.0.0</string>
+    <string name="settings_language_dialog_title">Choose Language</string>
+    <string name="settings_language_changed">Language changed to %1$s</string>
 
     <!-- ─── Artisan Profile Screen ─── -->
     <string name="master_craftsman">Master\nCraftsman:</string>
@@ -91,4 +112,65 @@
     <string name="error_label">Error</string>
     <string name="nothing_here_yet">Nothing here yet</string>
     <string name="heritage_toys">Heritage Toys</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="digit_placeholder">O</string>
+    <string name="place_channapatna">Channapatna</string>
+    <string name="place_karnataka">Karnataka</string>
+
+    <!-- ─── Catalog additions ─── -->
+    <string name="artisan_catalog">ARTISAN CATALOG</string>
+    <string name="handcrafted_with_love">Handcrafted with Love</string>
+    <string name="authentic_products_count">%1$d authentic products from Channapatna artisans</string>
+    <string name="gi_checkmark">GI ✓</string>
+    
+    <!-- ─── Category additions ─── -->
+    <string name="category_all">All</string>
+    <string name="category_classic">Classic</string>
+    <string name="category_educational">Educational</string>
+    <string name="category_decor">Decor</string>
+    <string name="category_infant">Infant</string>
+
+    <!-- ─── Artisan Profile / App Nav additions ─── -->
+    <string name="view_products">VIEW PRODUCTS</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_verify">Verify</string>
+    <string name="nav_maker">Maker</string>
+    <string name="nav_catalog">Catalog</string>
+    <string name="nav_more">More</string>
+
+    <!-- ─── Home screen roles ─── -->
+    <string name="role_master_turner">MASTER TURNER</string>
+    <string name="role_lacquer_artist">LACQUER ARTIST</string>
+    <string name="role_wood_carver">WOOD CARVER</string>
+
+    <!-- ─── Accessibility ─── -->
+    <string name="menu_desc">Menu</string>
+    <string name="favorite_desc">Favorite</string>
+    <string name="search_desc">Search</string>
+    <string name="close_desc">Close</string>
+
+    <!-- Home Screen Placeholder Content -->
+    <string name="home_artisan_ramesh">Ramesh K.</string>
+    <string name="home_artisan_sunitha">Sunitha G.</string>
+    <string name="home_artisan_venkatesh">Venkatesh S.</string>
+
+    <string name="home_toy_stacker">Classic Stacker</string>
+    <string name="home_toy_engine">Wooden Engine</string>
+    <string name="home_toy_bambaram">Bambaram Set</string>
+    
+    <string name="price_450">₹ 450</string>
+    <string name="price_850">₹ 850</string>
+    <string name="price_250">₹ 250</string>
+
+    <!-- ─── Error / Validation ─── -->
+    <string name="error_enter_toy_id">Please enter a toy ID</string>
+    <string name="error_id_digits">ID must be exactly 6 digits</string>
+    <string name="error_failed_to_parse">Failed to parse data. Please try again.</string>
+    <string name="error_no_toy_found">Toy not found. Please check the ID and try again.</string>
+    <string name="error_artisan_not_found">Artisan not found.</string>
+    <string name="error_no_workshops">No workshops found.</string>
+    <string name="error_database">Database error.</string>
+    <string name="error_network">Network error. Please check your internet connection and try again.</string>
+    <string name="error_unexpected">An unexpected error occurred.</string>
 </resources>

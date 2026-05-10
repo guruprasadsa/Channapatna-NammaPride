@@ -11,22 +11,41 @@
     <string name="brand_line_1">ಚನ್ನಪಟ್ಟಣ -</string>
     <string name="brand_line_2">ನಮ್ಮ ಹೆಮ್ಮೆ</string>
     <string name="language_label">ಕನ್ನಡ ▾</string>
+    <string name="language_display_name">ಕನ್ನಡ</string>
 
     <!-- ─── Home Screen ─── -->
     <string name="home_hero_title">ಮರದ ಕಥೆಯನ್ನು\nಸಂಭ್ರಮಿಸಿ</string>
-    <string name="home_hero_subtitle">ಮರದ ಕಥೆಯನ್ನು ಆಚರಿಸಿ</string>
+    <string name="home_hero_subtitle">ಗೊಂಬೆಗಳ ಊರಿನ ಜಾದುವನ್ನು ಕಂಡುಕೊಳ್ಳಿ.</string>
     <string name="verify_my_toy">ನನ್ನ ಗೊಂಬೆಯನ್ನು ಪರಿಶೀಲಿಸಿ</string>
     <string name="verify_my_toy_desc">ನಿಮ್ಮ ಚನ್ನಪಟ್ಟಣ ಕರಕುಶಲತೆಯ\nಅಸಲಿತನವನ್ನು ಖಚಿತಪಡಿಸಿ.</string>
-    <string name="scan_now">ಈಗ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
+    <string name="scan_now">ಈಗ ಪರಿಶೀಲಿಸಿ</string>
     <string name="tile_meet_maker">ತಯಾರಕರನ್ನು\nಭೇಟಿ ಮಾಡಿ</string>
     <string name="tile_how_its_made">ಇದನ್ನು ಹೇಗೆ\nತಯಾರಿಸುತ್ತಾರೆ</string>
     <string name="tile_toy_catalog">ಗೊಂಬೆ\nಪಟ್ಟಿ</string>
     <string name="tile_workshop_map">ಕಾರ್ಯಾಗಾರ\nನಕ್ಷೆ</string>
     <string name="support_local_artisans">ಸ್ಥಳೀಯ ಕುಶಲಕರ್ಮಿಗಳನ್ನು ಬೆಂಬಲಿಸಿ</string>
 
+    <!-- GI Tag Section -->
+    <string name="gi_tag_title">ಜಿಐ ಟ್ಯಾಗ್ ಸಂ. 23</string>
+    <string name="gi_tag_description">ಚನ್ನಪಟ್ಟಣದ ಅಸಲಿ ಕರಕುಶಲ. 2005ರಿಂದ ರಕ್ಷಿತ ಪರಂಪರೆ, ಖಚಿತ ಗುಣಮಟ್ಟದ ಭರವಸೆ.</string>
+
+    <!-- Craft Journey Section -->
+    <string name="craft_journey_title">ಕರಕುಶಲ ಪ್ರಯಾಣ</string>
+    <string name="craft_step_1_title">1. ಆಯ್ಕೆ</string>
+    <string name="craft_step_1_desc">ದೃಢತೆಗೆ ಪಕ್ವ ಹಾಲೆ ಮರದ ಆಯ್ಕೆ.</string>
+    <string name="craft_step_2_title">2. ಕೆತ್ತನೆ</string>
+    <string name="craft_step_2_desc">ಪಾರಂಪರಿಕ ಲೇತ್ ಮೇಲೆ ನಿಖರ ಆಕಾರ ನೀಡುವುದು.</string>
+    <string name="craft_step_3_title">3. ಬಣ್ಣ</string>
+    <string name="craft_step_3_desc">ನೈಸರ್ಗಿಕ ತರಕಾರಿ ಬಣ್ಣಗಳಿಂದ ಲೇಪಿಸುವುದು.</string>
+
+    <!-- New Arrivals Section -->
+    <string name="new_arrivals">ಹೊಸ ಬಂದವು</string>
+    <string name="view_all">ಎಲ್ಲವನ್ನು ನೋಡಿ</string>
+
     <!-- ─── Verify / Result Screen ─── -->
     <string name="verify_title">ನನ್ನ ಗೊಂಬೆಯನ್ನು ಪರಿಶೀಲಿಸಿ</string>
-    <string name="verify_instruction">ನಿಮ್ಮ ಚನ್ನಪಟ್ಟಣ ಗೊಂಬೆಯ ಮೇಲಿರುವ\n6-ಅಂಕಿಯ ID ನಮೂದಿಸಿ.</string>
+    <string name="verify_instruction">ನಿಮ್ಮ ಚನ್ನಪಟ್ಟಣ ಗೊಂಬೆಯ ಮೇಲಿರುವ
+6-ಅಂಕಿಯ ID ನಮೂದಿಸಿ.</string>
     <string name="verify_button">ಅಸಲಿತನ ಪರಿಶೀಲಿಸಿ</string>
     <string name="authentic_badge">ಅಸಲಿ ಚನ್ನಪಟ್ಟಣ</string>
     <string name="gi_tag_label">ಜಿಐ ಟ್ಯಾಗ್ ಸಂ. %1$s</string>
@@ -38,7 +57,7 @@
     <string name="meet_the_maker">ತಯಾರಕರನ್ನು ಭೇಟಿ ಮಾಡಿ</string>
     <string name="discover_workshops">ಚನ್ನಪಟ್ಟಣದಲ್ಲಿ ಕಾರ್ಯಾಗಾರ ಸ್ಥಳಗಳನ್ನು ಅನ್ವೇಷಿಸಿ</string>
     <string name="nearby_workshops">ಹತ್ತಿರದ ಕಾರ್ಯಾಗಾರಗಳು</string>
-    <string name="workshops_found">%1$d ಕಂಡುಬಂದಿದೆ</string>
+    <string name="workshops_found">%1$d ಕಾರ್ಯಾಗಾರಗಳು</string>
     <string name="finding_workshops">ಕಾರ್ಯಾಗಾರಗಳನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ…</string>
     <string name="by_artisan">%1$s ಅವರಿಂದ</string>
 
@@ -66,14 +85,17 @@
     <string name="settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="preferences">ಆದ್ಯತೆಗಳು</string>
     <string name="language">ಭಾಷೆ</string>
-    <string name="language_english">English</string>
-    <string name="language_kannada">ಕನ್ನಡ (ಕನ್ನಡ)</string>
+    <string name="language_english">ಇಂಗ್ಲಿಷ್</string>
+    <string name="language_kannada">ಕನ್ನಡ</string>
     <string name="notifications">ಅಧಿಸೂಚನೆಗಳು</string>
     <string name="notifications_subtitle">ಹೊಸ ಗೊಂಬೆಗಳ ನವೀಕರಣಗಳನ್ನು ಪಡೆಯಿರಿ</string>
     <string name="about">ಕುರಿತು</string>
     <string name="about_app">ಚನ್ನಪಟ್ಟಣ ನಮ್ಮ ಹೆಮ್ಮೆ ಬಗ್ಗೆ</string>
+    <string name="about_app_description">ಚನ್ನಪಟ್ಟಣ ನಮ್ಮ ಹೆಮ್ಮೆ ಅಸಲಿ ಜಿಐ-ಟ್ಯಾಗ್ ಪಡೆದ ಮರದ ಲ್ಯಾಕರ್ ಕರಕುಶಲದ ಶ್ರೀಮಂತ ಪರಂಪರೆಯನ್ನು ಆಚರಿಸುತ್ತದೆ. ಈ ಆಪ್ ನಿಮಗೆ ಗೊಂಬೆಗಳ ಅಸಲಿತನ ಪರಿಶೀಲಿಸಲು, ಕುಶಲಕರ್ಮಿಗಳನ್ನು ಕಂಡುಕೊಳ್ಳಲು ಮತ್ತು ಪುರಾತನ ಕರಕುಶಲ ಪ್ರಯಾಣವನ್ನು ಅನ್ವೇಷಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
     <string name="privacy_policy">ಗೌಪ್ಯತಾ ನೀತಿ</string>
     <string name="version">ಆವೃತ್ತಿ 1.0.0</string>
+    <string name="settings_language_dialog_title">ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="settings_language_changed">ಭಾಷೆ %1$sಗೆ ಬದಲಾಯಿಸಲಾಗಿದೆ</string>
 
     <!-- ─── Artisan Profile Screen ─── -->
     <string name="master_craftsman">ಮಾಸ್ಟರ್\nಕುಶಲಕರ್ಮಿ:</string>
@@ -91,4 +113,64 @@
     <string name="error_label">ದೋಷ</string>
     <string name="nothing_here_yet">ಇಲ್ಲಿ ಇನ್ನೂ ಏನೂ ಇಲ್ಲ</string>
     <string name="heritage_toys">ಪರಂಪರೆಯ ಗೊಂಬೆಗಳು</string>
+    <string name="ok">ಸರಿ</string>
+    <string name="cancel">ರದ್ದು</string>
+    <string name="digit_placeholder">O</string>
+    <string name="place_channapatna">ಚನ್ನಪಟ್ಟಣ</string>
+    <string name="place_karnataka">ಕರ್ನಾಟಕ</string>
+
+    <!-- ─── Catalog additions ─── -->
+    <string name="artisan_catalog">ಕುಶಲಕರ್ಮಿಗಳ ಪಟ್ಟಿ</string>
+    <string name="handcrafted_with_love">ಪ್ರೀತಿಯಿಂದ ಕೈಯಾರೆ ತಯಾರಿಸಲಾಗಿದೆ</string>
+    <string name="authentic_products_count">ಚನ್ನಪಟ್ಟಣ ಕುಶಲಕರ್ಮಿಗಳಿಂದ %1$d ಅಸಲಿ ಉತ್ಪನ್ನಗಳು</string>
+    <string name="gi_checkmark">ಜಿಐ ✓</string>
+    
+    <!-- ─── Category additions ─── -->
+    <string name="category_all">ಎಲ್ಲ</string>
+    <string name="category_classic">ಕ್ಲಾಸಿಕ್</string>
+    <string name="category_educational">ಶೈಕ್ಷಣಿಕ</string>
+    <string name="category_decor">ಅಲಂಕಾರ</string>
+    <string name="category_infant">ಶಿಶು</string>
+
+    <!-- ─── Artisan Profile / App Nav additions ─── -->
+    <string name="view_products">ಉತ್ಪನ್ನಗಳನ್ನು ವೀಕ್ಷಿಸಿ</string>
+    <string name="nav_home">ಮುಖಪುಟ</string>
+    <string name="nav_verify">ಪರಿಶೀಲಿಸಿ</string>
+    <string name="nav_maker">ತಯಾರಕ</string>
+    <string name="nav_catalog">ಪಟ್ಟಿ</string>
+    <string name="nav_more">ಇನ್ನಷ್ಟು</string>
+
+    <!-- ─── Home screen roles ─── -->
+    <string name="role_master_turner">ಮಾಸ್ಟರ್ ಟರ್ನರ್</string>
+    <string name="role_lacquer_artist">ಲ್ಯಾಕರ್ ಕಲಾವಿದ</string>
+    <string name="role_wood_carver">ಮರ ಕೆತ್ತನೆಗಾರ</string>
+
+    <!-- ─── Accessibility ─── -->
+    <string name="menu_desc">ಮೆನು</string>
+    <string name="favorite_desc">ಮೆಚ್ಚಿನವು</string>
+    <string name="search_desc">ಹುಡುಕು</string>
+    <string name="close_desc">ಮುಚ್ಚು</string>
+
+    <!-- Home Screen Placeholder Content -->
+    <string name="home_artisan_ramesh">ರಮೇಶ್ ಕೆ.</string>
+    <string name="home_artisan_sunitha">ಸುನಿತಾ ಜಿ.</string>
+    <string name="home_artisan_venkatesh">ವೆಂಕಟೇಶ್ ಎಸ್.</string>
+
+    <string name="home_toy_stacker">ಕ್ಲಾಸಿಕ್ ಸ್ಟ್ಯಾಕರ್</string>
+    <string name="home_toy_engine">ಮರದ ಇಂಜಿನ್</string>
+    <string name="home_toy_bambaram">ಬಂಬರಂ ಸೆಟ್</string>
+    
+    <string name="price_450">₹ ೪೫೦</string>
+    <string name="price_850">₹ ೮೫೦</string>
+    <string name="price_250">₹ ೨೫೦</string>
+
+    <string name="error_enter_toy_id">ದಯವಿಟ್ಟು ಗೊಂಬೆಯ ಐಡಿಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="error_id_digits">ಐಡಿಯು 6 ಅಂಕಿಗಳಷ್ಟಿರಬೇಕು</string>
+    <string name="error_failed_to_parse">ಡೇಟಾವನ್ನು ಓದಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ. ದಯವಿಟ್ಟು ಮರುಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="error_no_toy_found">ಗೊಂಬೆ ಕಂಡುಬಂದಿಲ್ಲ. ದಯವಿಟ್ಟು ಐಡಿಯನ್ನು ಪರಿಶೀಲಿಸಿ ಮರುಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="error_artisan_not_found">ಕುಶಲಕರ್ಮಿ ಕಂಡುಬಂದಿಲ್ಲ.</string>
+    <string name="error_no_workshops">ಯಾವುದೇ ಕಾರ್ಯಾಗಾರಗಳು ಕಂಡುಬಂದಿಲ್ಲ.</string>
+    <string name="error_database">ಡೇಟಾಬೇಸ್ ದೋಷ.</string>
+    <string name="error_network">ನೆಟ್‌ವರ್ಕ್ ದೋಷ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ.</string>
+    <string name="error_unexpected">ಅನಿರೀಕ್ಷಿತ ದೋಷ ಸಂಭವಿಸಿದೆ.</string>
 </resources>
