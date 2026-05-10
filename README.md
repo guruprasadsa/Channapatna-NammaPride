@@ -1,33 +1,55 @@
-# Channapatna Namma Pride
+# Channapatna Namma Pride 🎨🧸
 
-An authentic Android application designed to protect and promote the rich cultural heritage of Channapatna toys. This application serves as a bridge between master craftsmen and consumers, ensuring the authenticity of Geographical Indication (GI) tagged toys.
+[![Android CI](https://github.com/guruprasadsa/Channapatna-NammaPride/actions/workflows/android.yml/badge.svg)](https://github.com/guruprasadsa/Channapatna-NammaPride/actions/workflows/android.yml)
 
-## Features
+**Channapatna Namma Pride** is a premium Android application dedicated to preserving the cultural heritage of Channapatna toys. It provides a secure platform for verifying Geographical Indication (GI) tagged toys and connecting consumers with the master artisans behind the craft.
 
-- **Toy Verification:** Scan or manually enter a unique 6-digit toy ID to verify the authenticity of your purchase. Authentic toys receive a "Verified Authentic" badge along with their GI tag details.
-- **Meet the Maker:** Explore the profiles of master artisans. Learn about their story, specialties, and find their workshops.
-- **Workshop Map:** Discover artisan workshops in Channapatna with integrated Google Maps functionality.
-- **Premium Heritage Design:** A fully custom UI built in Jetpack Compose, featuring a bespoke color palette (Bone Surface, Lacquer Red, Wood Brown) that embodies the "Orbital Velocity / Premium Heritage" design system.
-- **Kannada Localization:** Full support for Kannada, enabling accessibility for local users and artisans.
+## ✨ Key Features
 
-## Tech Stack
+- **🔍 Heritage Verification**: Instantly verify the authenticity of Channapatna toys using unique tracking IDs linked to a secure Firestore backend.
+- **🛠️ Meet the Maker**: Detailed artisan profiles showcasing their stories, techniques, and cultural impact.
+- **📍 Interactive Workshop Map**: Navigate the streets of Channapatna to visit authentic artisan clusters and workshops via Google Maps integration.
+- **🌺 Premium Heritage UI**: A high-fidelity interface built with Jetpack Compose, featuring a bespoke color palette (Bone Surface, Lacquer Red, Wood Brown) that mirrors the traditional lacquerware aesthetic.
+- **🌍 Full Kannada Localization**: Culturally native experience for local communities and tourists alike.
 
-- **UI Framework:** Jetpack Compose (Material 3)
-- **Architecture:** MVVM (Model-View-ViewModel)
-- **Backend:** Firebase Firestore (for verifying toys and fetching artisan data)
-- **Maps:** Google Maps Compose SDK
-- **Language:** Kotlin
+## 🚀 Technical Architecture
 
-## Production Setup
+- **UI Framework**: Jetpack Compose (Material 3)
+- **Architecture**: Clean MVVM (Model-View-ViewModel) with StateFlow
+- **Backend**: Firebase Firestore (NoSQL)
+- **Navigation**: Compose Navigation
+- **Image Loading**: Coil
+- **Maps**: Google Maps Compose SDK
 
-1. **Firebase Configuration:** The project expects a `google-services.json` file in the `app/` directory. Ensure your Firebase project has Firestore enabled.
-2. **Google Maps API Key:** Add your Maps API key in the `local.properties` file or `AndroidManifest.xml` via manifest placeholders.
-3. **Build Types:** The `release` build type is fully configured with minification (`R8`) and resource shrinking enabled for a highly optimized APK.
+## 🛠️ Installation & Setup
 
-## Screenshots
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/guruprasadsa/Channapatna-NammaPride.git
+   ```
+2. **Firebase Setup**:
+   - Create a Firebase project and add an Android app.
+   - Download `google-services.json` and place it in the `app/` directory.
+   - Enable Cloud Firestore and seed the data using the provided scripts in `/scripts`.
+3. **Maps API**:
+   - Obtain a Google Maps API Key from the Google Cloud Console.
+   - Add the key to your `local.properties`:
+     ```properties
+     MAPS_API_KEY=your_api_key_here
+     ```
+4. **Build & Run**:
+   - Open in Android Studio (Koala or later).
+   - Sync Gradle and run on an emulator or physical device.
 
-The app features beautiful custom-designed components like the Verification Hero Card, Quick Tiles, and dynamic Artisan Profiles with high-quality imagery.
+## 📸 Screenshots
 
-## License
+| Home Screen | Toy Verification | Artisan Profile |
+| :---: | :---: | :---: |
+| ![Home](metadata/screenshots/HomeScreen.png) | ![Verify](metadata/screenshots/VerifyMyToy.png) | ![Artisan](metadata/screenshots/ArtisanProfile.png) |
 
-This project is intended to protect the local heritage of Channapatna. Copyright (c) 2026.
+## 📜 License
+
+This project is licensed under the MIT License. It is intended for cultural preservation and community empowerment.
+
+---
+Developed with ❤️ for the artisans of Channapatna.

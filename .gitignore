@@ -1,17 +1,41 @@
+# Built variants
+**/build
+*.apk
+*.aab
+
+# IDE
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.ipr
+*.iws
+.vscode/
+
+# Local configuration
 local.properties
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.swp
+*~
+.DS_Store
+
+# Secrets and credentials
+**/google-services.json
+**/release-keystore.jks
+**/secrets.properties
+
+# Node modules (for seeding scripts)
 node_modules/
 scripts/node_modules/
+
+# Logs
+*.log
+logcat_output.txt
+logcat_output_utf8.txt
+
+# Temp files
+*.tmp
+*.zip
+*.bak
