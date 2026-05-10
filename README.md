@@ -1,6 +1,7 @@
 # Channapatna Namma Pride 🎨🧸
 
 [![Android CI](https://github.com/guruprasadsa/Channapatna-NammaPride/actions/workflows/android.yml/badge.svg)](https://github.com/guruprasadsa/Channapatna-NammaPride/actions/workflows/android.yml)
+[![Download APK](https://img.shields.io/badge/Download-APK-green?style=for-the-badge&logo=android)](https://github.com/guruprasadsa/Channapatna-NammaPride/actions)
 
 **Channapatna Namma Pride** is a premium Android application dedicated to preserving the cultural heritage of Channapatna toys. It provides a secure platform for verifying Geographical Indication (GI) tagged toys and connecting consumers with the master artisans behind the craft.
 
