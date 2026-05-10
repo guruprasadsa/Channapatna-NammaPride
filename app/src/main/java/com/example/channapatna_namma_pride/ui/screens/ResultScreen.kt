@@ -1,21 +1,21 @@
 package com.example.channapatna_namma_pride.ui.screens
 
+import androidx.compose.animation.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Build
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -33,6 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.channapatna_namma_pride.R
 import com.example.channapatna_namma_pride.model.Resource
 import com.example.channapatna_namma_pride.model.Toy
@@ -42,8 +44,7 @@ import com.example.channapatna_namma_pride.viewmodel.VerificationViewModel
 
 /**
  * The Verify My Toy screen.
- * Combines the input form and result display into a single scrollable flow.
- * All input state is managed by the [VerificationViewModel].
+ * Refined with an artisanal narrative and premium visual hierarchy.
  */
 @Composable
 fun ResultScreen(
@@ -56,157 +57,193 @@ fun ResultScreen(
     val inputError by viewModel.inputError.collectAsState()
 
     Scaffold(
-        topBar = { AppTopBar(onNavigateBack = onNavigateBack) }
+        topBar = { AppTopBar(onNavigateBack = onNavigateBack) },
+        containerColor = BoneSurface
     ) { padding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(BoneSurface)
                 .padding(padding)
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = 20.dp),
+                .padding(bottom = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // ─── Title ───
-            Text(
-                text = stringResource(R.string.verify_title),
-                style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold),
-                color = TextPrimary
-            )
-            Text(
-                text = stringResource(R.string.verify_instruction),
-                style = MaterialTheme.typography.bodyMedium,
-                color = TextSecondary,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = 4.dp, bottom = 24.dp)
+            // ─── Immersive Header ───
+            HeaderSection()
+
+            // ─── Input Card ───
+            InputCard(
+                toyId = toyId,
+                onToyIdChanged = { viewModel.onToyIdChanged(it) },
+                inputError = inputError,
+                isVerifying = result is Resource.Loading,
+                onVerifyClick = { viewModel.verifyToy() }
             )
 
-            // ─── Input & Action Card ───
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(24.dp),
-                colors = CardDefaults.cardColors(containerColor = BoneSurfaceDark.copy(alpha = 0.4f)),
-                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-            ) {
-                Column(
-                    modifier = Modifier.padding(20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    // ─── 6-Digit Input Row ───
-                    DigitInputRow(value = toyId, onValueChange = { viewModel.onToyIdChanged(it) })
-
-                    // Input error
-                    if (inputError != null) {
-                        Text(
-                            text = inputError!!,
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodySmall,
-                            modifier = Modifier.padding(top = 8.dp)
+            // ─── Verification Result Content ───
+            AnimatedContent(
+                targetState = result,
+                transitionSpec = {
+                    (fadeIn() + scaleIn(initialScale = 0.95f)).togetherWith(fadeOut())
+                },
+                label = "VerificationResult"
+            ) { state ->
+                when (state) {
+                    is Resource.Success -> {
+                        VerificationResultContent(
+                            toy = state.data,
+                            onNavigateToArtisan = onNavigateToArtisan
                         )
                     }
-
-                    Spacer(modifier = Modifier.height(20.dp))
-
-                    // ─── Verify Button ───
-                    Button(
-                        onClick = { viewModel.verifyToy() },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(52.dp),
-                        shape = RoundedCornerShape(26.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = LacquerRed),
-                        enabled = result !is Resource.Loading
-                    ) {
-                        if (result is Resource.Loading) {
-                            CircularProgressIndicator(
-                                color = Color.White,
-                                modifier = Modifier.size(24.dp),
-                                strokeWidth = 2.dp
-                            )
-                        } else {
-                            Text(
-                                stringResource(R.string.verify_button),
-                                style = MaterialTheme.typography.labelLarge.copy(
-                                    fontWeight = FontWeight.Bold,
-                                    letterSpacing = 1.5.sp
-                                )
-                            )
-                        }
+                    is Resource.Error -> {
+                        ErrorMessage(messageId = state.messageId, message = state.message)
+                    }
+                    else -> {
+                        // Show nothing or a subtle placeholder
+                        Spacer(modifier = Modifier.height(24.dp))
                     }
                 }
-            }
-
-            // ─── Error from API ───
-            if (result is Resource.Error) {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 16.dp),
-                    shape = RoundedCornerShape(12.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.errorContainer
-                    )
-                ) {
-                    Text(
-                        text = (result as Resource.Error).message,
-                        color = MaterialTheme.colorScheme.onErrorContainer,
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(12.dp)
-                    )
-                }
-            }
-
-            // ─── Success Result ───
-            if (result is Resource.Success) {
-                val toy = (result as Resource.Success<Toy>).data
-                VerificationResultContent(
-                    toy = toy,
-                    onNavigateToArtisan = onNavigateToArtisan
-                )
             }
         }
     }
 }
 
-/**
- * The 6-digit input row rendered as individual rounded boxes.
- */
+@Composable
+private fun HeaderSection() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp, vertical = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = stringResource(R.string.verify_title),
+            style = MaterialTheme.typography.headlineLarge,
+            color = TextPrimary,
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = stringResource(R.string.verify_instruction),
+            style = MaterialTheme.typography.bodyMedium,
+            color = TextSecondary,
+            textAlign = TextAlign.Center,
+            lineHeight = 22.sp
+        )
+    }
+}
+
+@Composable
+private fun InputCard(
+    toyId: String,
+    onToyIdChanged: (String) -> Unit,
+    inputError: Int?,
+    isVerifying: Boolean,
+    onVerifyClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(28.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            DigitInputRow(value = toyId, onValueChange = onToyIdChanged)
+
+            if (inputError != null) {
+                Text(
+                    text = stringResource(id = inputError),
+                    color = LacquerRed,
+                    style = MaterialTheme.typography.labelSmall,
+                    modifier = Modifier.padding(top = 12.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Button(
+                onClick = onVerifyClick,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
+                shape = RoundedCornerShape(28.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = LacquerRed),
+                enabled = !isVerifying
+            ) {
+                if (isVerifying) {
+                    CircularProgressIndicator(
+                        color = Color.White,
+                        modifier = Modifier.size(24.dp),
+                        strokeWidth = 2.dp
+                    )
+                } else {
+                    Icon(Icons.Default.Search, contentDescription = null)
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Text(
+                        stringResource(R.string.verify_button),
+                        style = MaterialTheme.typography.labelLarge.copy(
+                            fontWeight = FontWeight.Bold,
+                            letterSpacing = 1.sp
+                        )
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ErrorMessage(messageId: Int?, message: String?) {
+    Box(
+        modifier = Modifier
+            .padding(24.dp)
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(16.dp))
+            .background(LacquerRed.copy(alpha = 0.1f))
+            .border(1.dp, LacquerRed.copy(alpha = 0.2f), RoundedCornerShape(16.dp))
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = messageId?.let { stringResource(it) } ?: message ?: stringResource(R.string.error_label),
+            color = LacquerRed,
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center
+        )
+    }
+}
+
 @Composable
 private fun DigitInputRow(value: String, onValueChange: (String) -> Unit) {
+    val placeholder = stringResource(R.string.digit_placeholder)
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(32.dp))
-            .border(1.5.dp, OutlineColor, RoundedCornerShape(32.dp))
-            .background(Color.White)
-            .padding(horizontal = 24.dp, vertical = 16.dp),
+            .clip(RoundedCornerShape(16.dp))
+            .background(BoneSurface)
+            .padding(vertical = 12.dp),
         contentAlignment = Alignment.Center
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                for (i in 0 until 6) {
-                    val char = value.getOrNull(i)?.toString() ?: ""
-                    Text(
-                        text = char.ifEmpty { "O" },
-                        style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
-                        color = if (char.isEmpty()) OutlineColor.copy(alpha = 0.5f) else TextPrimary
-                    )
-                }
+            for (i in 0 until 6) {
+                val char = value.getOrNull(i)?.toString() ?: ""
+                DigitBox(char = char, placeholder = placeholder)
+                if (i < 5) Spacer(modifier = Modifier.width(8.dp))
             }
-            Icon(
-                Icons.Default.Search, 
-                contentDescription = null, 
-                tint = OutlineColor,
-                modifier = Modifier.size(24.dp)
-            )
         }
     }
 
-    // Invisible text field to capture keyboard input
+    // Hidden field for input
     androidx.compose.material3.OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
@@ -225,208 +262,219 @@ private fun DigitInputRow(value: String, onValueChange: (String) -> Unit) {
     )
 }
 
-/**
- * The verified toy result content — badge, image, details, and action buttons.
- */
+@Composable
+private fun DigitBox(char: String, placeholder: String) {
+    Box(
+        modifier = Modifier
+            .size(42.dp, 52.dp)
+            .clip(RoundedCornerShape(12.dp))
+            .background(if (char.isEmpty()) Color.White else WoodBrown.copy(alpha = 0.1f))
+            .border(1.5.dp, if (char.isNotEmpty()) WoodBrown else OutlineColor, RoundedCornerShape(12.dp)),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = char.ifEmpty { placeholder },
+            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
+            color = if (char.isEmpty()) OutlineColor else TextPrimary
+        )
+    }
+}
+
 @Composable
 private fun VerificationResultContent(
     toy: Toy,
     onNavigateToArtisan: (String) -> Unit
 ) {
-    Spacer(modifier = Modifier.height(28.dp))
-
-    // Authentic badge
-    Row(
+    Column(
         modifier = Modifier
-            .clip(RoundedCornerShape(20.dp))
-            .background(PrimaryGreen.copy(alpha = 0.1f))
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .fillMaxWidth()
+            .padding(top = 12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            Icons.Default.CheckCircle,
-            contentDescription = stringResource(R.string.authentic_badge),
-            tint = PrimaryGreen,
-            modifier = Modifier.size(18.dp)
-        )
-        Spacer(modifier = Modifier.width(6.dp))
-        Text(
-            stringResource(R.string.authentic_badge),
-            style = MaterialTheme.typography.labelSmall.copy(
-                fontWeight = FontWeight.Bold,
-                letterSpacing = 1.sp
-            ),
-            color = PrimaryGreen
-        )
-    }
-
-    Spacer(modifier = Modifier.height(20.dp))
-
-    // Toy image card
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp)
-                .background(
-                    Brush.verticalGradient(
-                        listOf(WoodBrown.copy(alpha = 0.3f), LacquerRed.copy(alpha = 0.2f))
-                    )
-                ),
-            contentAlignment = Alignment.Center
+        // ─── Authentic Badge ───
+        Surface(
+            modifier = Modifier.padding(bottom = 24.dp),
+            shape = RoundedCornerShape(20.dp),
+            color = PrimaryGreen.copy(alpha = 0.1f),
+            border = border(1.dp, PrimaryGreen.copy(alpha = 0.3f), RoundedCornerShape(20.dp))
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.channapatna_toy),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop,
-                alpha = 0.9f
-            )
-            // GI Tag badge
-            Box(
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .padding(12.dp)
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(LacquerRed)
-                    .padding(horizontal = 10.dp, vertical = 4.dp)
+            Row(
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
+                Icon(Icons.Default.CheckCircle, contentDescription = null, tint = PrimaryGreen, modifier = Modifier.size(20.dp))
+                Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    stringResource(R.string.gi_tag_label, toy.giTagNumber.ifEmpty { toy.id.take(2) }),
-                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                    color = Color.White
+                    text = stringResource(R.string.authentic_badge),
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.ExtraBold),
+                    color = PrimaryGreen,
+                    letterSpacing = 1.2.sp
                 )
             }
         }
-    }
 
-    Spacer(modifier = Modifier.height(20.dp))
-
-    // Toy name
-    Text(
-        text = toy.name.replaceFirstChar { it.uppercase() },
-        style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold),
-        color = TextPrimary,
-        modifier = Modifier.fillMaxWidth()
-    )
-
-    Spacer(modifier = Modifier.height(12.dp))
-
-    // Artisan row
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Box(
+        // ─── Product Card ───
+        Card(
             modifier = Modifier
-                .size(40.dp)
-                .clip(CircleShape)
-                .background(WoodBrown.copy(alpha = 0.15f)),
-            contentAlignment = Alignment.Center
+                .padding(horizontal = 24.dp)
+                .fillMaxWidth()
+                .shadow(8.dp, RoundedCornerShape(28.dp), ambientColor = WoodBrown, spotColor = WoodBrown),
+            shape = RoundedCornerShape(28.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White)
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.artisan_portrait),
+            Column {
+                // Product Image
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(280.dp)
+                        .background(BoneSurfaceDark.copy(alpha = 0.3f))
+                ) {
+                    if (toy.imageUrl.isNotEmpty()) {
+                        AsyncImage(
+                            model = toy.imageUrl,
+                            contentDescription = toy.name,
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop
+                        )
+                    } else {
+                        Image(
+                            painter = painterResource(id = R.drawable.channapatna_toy),
+                            contentDescription = null,
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop,
+                            alpha = 0.4f
+                        )
+                    }
+
+                    // GI Tag Badge (Overlay)
+                    Surface(
+                        modifier = Modifier
+                            .align(Alignment.TopStart)
+                            .padding(16.dp),
+                        shape = RoundedCornerShape(8.dp),
+                        color = LacquerRed
+                    ) {
+                        Text(
+                            text = stringResource(R.string.gi_tag_label, toy.giTagNumber.ifEmpty { "23" }),
+                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                        )
+                    }
+                }
+
+                // Product Details
+                Column(modifier = Modifier.padding(24.dp)) {
+                    Text(
+                        text = toy.name,
+                        style = MaterialTheme.typography.headlineMedium,
+                        color = TextPrimary
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Artisan Link
+                    ArtisanLinkRow(
+                        artisanName = toy.artisanName,
+                        onClick = { onNavigateToArtisan(toy.artisanId.ifEmpty { "syed_athar" }) }
+                    )
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    // Description Quote
+                    Surface(
+                        shape = RoundedCornerShape(16.dp),
+                        color = BoneSurface
+                    ) {
+                        Text(
+                            text = "\"${toy.description}\"",
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                fontStyle = FontStyle.Italic,
+                                lineHeight = 24.sp
+                            ),
+                            color = TextSecondary,
+                            modifier = Modifier.padding(20.dp)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    // Action Buttons
+                    ActionButtons(onToyStoryClick = {})
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ArtisanLinkRow(artisanName: String, onClick: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(12.dp))
+            .clickable { onClick() }
+            .background(BoneSurface)
+            .padding(12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Surface(
+            modifier = Modifier.size(48.dp),
+            shape = CircleShape,
+            color = WoodBrown.copy(alpha = 0.1f)
+        ) {
+            Icon(
+                Icons.Default.Person,
                 contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
+                modifier = Modifier
+                    .padding(10.dp)
+                    .fillMaxSize(),
+                tint = WoodBrown
             )
         }
-        Spacer(modifier = Modifier.width(12.dp))
+        Spacer(modifier = Modifier.width(16.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                stringResource(R.string.master_maker),
-                style = MaterialTheme.typography.labelSmall.copy(
-                    letterSpacing = 1.sp,
-                    fontWeight = FontWeight.Medium
-                ),
+                text = stringResource(R.string.master_maker),
+                style = MaterialTheme.typography.labelSmall,
                 color = TextSecondary
             )
             Text(
-                toy.artisanName,
+                text = artisanName,
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold),
                 color = TextPrimary
             )
         }
         Icon(
-            androidx.compose.material.icons.Icons.Default.Build,
+            Icons.AutoMirrored.Filled.KeyboardArrowRight,
             contentDescription = null,
-            tint = WoodBrown.copy(alpha = 0.6f),
-            modifier = Modifier.size(24.dp)
+            tint = WoodBrown
         )
     }
+}
 
-    Spacer(modifier = Modifier.height(16.dp))
-
-    // Description quote
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = BoneSurfaceDark.copy(alpha = 0.5f)),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-    ) {
-        Text(
-            text = "\"${toy.description}\"",
-            style = MaterialTheme.typography.bodyMedium.copy(
-                fontStyle = FontStyle.Italic,
-                lineHeight = 22.sp
-            ),
-            color = TextSecondary,
-            modifier = Modifier.padding(16.dp)
-        )
-    }
-
-    Spacer(modifier = Modifier.height(24.dp))
-
-    // Action buttons
-    Button(
-        onClick = { onNavigateToArtisan(toy.artisanId.ifEmpty { "syed_athar" }) },
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(52.dp),
-        shape = RoundedCornerShape(26.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = WoodBrown)
-    ) {
-        Icon(Icons.Default.Person, contentDescription = null, modifier = Modifier.size(18.dp))
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(
-            stringResource(R.string.view_artisan_profile),
-            style = MaterialTheme.typography.labelLarge.copy(
-                fontWeight = FontWeight.Bold,
-                letterSpacing = 1.sp
-            )
-        )
-    }
-
-    Spacer(modifier = Modifier.height(12.dp))
-
+@Composable
+private fun ActionButtons(onToyStoryClick: () -> Unit) {
     OutlinedButton(
-        onClick = { /* TODO: Navigate to toy story */ },
+        onClick = onToyStoryClick,
         modifier = Modifier
             .fillMaxWidth()
-            .height(52.dp),
-        shape = RoundedCornerShape(26.dp)
+            .height(56.dp),
+        shape = RoundedCornerShape(28.dp),
+        border = border(1.5.dp, WoodBrown, RoundedCornerShape(28.dp))
     ) {
-        Icon(
-            Icons.Default.PlayArrow,
-            contentDescription = null,
-            tint = WoodBrown,
-            modifier = Modifier.size(18.dp)
-        )
-        Spacer(modifier = Modifier.width(8.dp))
+        Icon(Icons.Default.PlayArrow, contentDescription = null, tint = WoodBrown)
+        Spacer(modifier = Modifier.width(12.dp))
         Text(
-            stringResource(R.string.watch_toy_story),
-            style = MaterialTheme.typography.labelLarge.copy(
-                fontWeight = FontWeight.Bold,
-                letterSpacing = 1.sp
-            ),
+            text = stringResource(R.string.watch_toy_story),
+            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
             color = WoodBrown
         )
     }
-
-    Spacer(modifier = Modifier.height(32.dp))
 }
+
+// Helper for border
+@Composable
+private fun border(width: androidx.compose.ui.unit.Dp, color: Color, shape: androidx.compose.ui.graphics.Shape) = 
+    androidx.compose.foundation.BorderStroke(width, color)
+

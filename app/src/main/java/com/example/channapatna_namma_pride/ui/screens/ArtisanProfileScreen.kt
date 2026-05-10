@@ -50,7 +50,8 @@ import com.example.channapatna_namma_pride.viewmodel.ArtisanViewModel
 fun ArtisanProfileScreen(
     artisanId: String,
     viewModel: ArtisanViewModel,
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onNavigateToCatalog: () -> Unit = {}
 ) {
     val artisanState by viewModel.artisanState.collectAsState()
 
@@ -69,18 +70,29 @@ fun ArtisanProfileScreen(
             }
             is Resource.Error -> {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(text = state.message, color = MaterialTheme.colorScheme.error)
+                    val msg = state.messageId?.let { stringResource(id = it) }
+                        ?: state.message
+                        ?: stringResource(R.string.error_label)
+                    Text(text = msg, color = MaterialTheme.colorScheme.error)
                 }
             }
             is Resource.Success -> {
-                ArtisanProfileContent(artisan = state.data, padding = padding)
+                ArtisanProfileContent(
+                    artisan = state.data,
+                    padding = padding,
+                    onNavigateToCatalog = onNavigateToCatalog
+                )
             }
         }
     }
 }
 
 @Composable
-private fun ArtisanProfileContent(artisan: Artisan, padding: PaddingValues) {
+private fun ArtisanProfileContent(
+    artisan: Artisan,
+    padding: PaddingValues,
+    onNavigateToCatalog: () -> Unit = {}
+) {
     val context = LocalContext.current
     val scrollState = rememberScrollState()
 
@@ -211,7 +223,7 @@ private fun ArtisanProfileContent(artisan: Artisan, padding: PaddingValues) {
 
             // ─── View Products ───
             Button(
-                onClick = { /* TODO */ },
+                onClick = onNavigateToCatalog,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(56.dp),
@@ -221,7 +233,7 @@ private fun ArtisanProfileContent(artisan: Artisan, padding: PaddingValues) {
                 Icon(Icons.Default.ShoppingCart, contentDescription = null, modifier = Modifier.size(20.dp))
                 Spacer(modifier = Modifier.width(12.dp))
                 Text(
-                    "VIEW PRODUCTS",
+                    stringResource(R.string.view_products),
                     style = MaterialTheme.typography.labelLarge.copy(
                         fontWeight = FontWeight.Bold,
                         letterSpacing = 1.2.sp
@@ -298,4 +310,3 @@ private fun SectionCard(
         }
     }
 }
-

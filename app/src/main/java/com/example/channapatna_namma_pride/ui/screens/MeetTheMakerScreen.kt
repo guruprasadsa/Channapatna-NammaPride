@@ -61,6 +61,8 @@ private val CHANNAPATNA_CENTER = LatLng(12.6517, 77.2063)
 @Composable
 fun MeetTheMakerScreen(workshopViewModel: WorkshopViewModel = viewModel()) {
     val workshopsState by workshopViewModel.workshops.collectAsState()
+    val context = LocalContext.current
+    val isKannada = com.example.channapatna_namma_pride.util.LocaleManager.isKannada(context)
 
     Scaffold(
         topBar = {
@@ -158,7 +160,9 @@ fun MeetTheMakerScreen(workshopViewModel: WorkshopViewModel = viewModel()) {
             when (val state = workshopsState) {
                 is Resource.Loading -> LoadingContent(message = stringResource(R.string.finding_workshops))
                 is Resource.Error -> ErrorContent(
-                    message = state.message,
+                    message = state.messageId?.let { stringResource(id = it) }
+                        ?: state.message
+                        ?: stringResource(R.string.error_label),
                     onRetry = { workshopViewModel.refresh() }
                 )
                 is Resource.Success -> {
@@ -171,7 +175,15 @@ fun MeetTheMakerScreen(workshopViewModel: WorkshopViewModel = viewModel()) {
                         verticalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         items(state.data) { workshop ->
-                            WorkshopCard(workshop)
+                            WorkshopCard(
+                                workshop = workshop,
+                                localizedAddress = localizePlaceTokens(
+                                    text = workshop.address,
+                                    isKannada = isKannada,
+                                    channapatna = stringResource(R.string.place_channapatna),
+                                    karnataka = stringResource(R.string.place_karnataka)
+                                )
+                            )
                         }
                     }
                 }
@@ -248,7 +260,7 @@ private fun GoogleMapComposable(workshops: List<Workshop>) {
 // ─── Workshop Card ─────────────────────────────────────────────────────────
 
 @Composable
-private fun WorkshopCard(workshop: Workshop) {
+private fun WorkshopCard(workshop: Workshop, localizedAddress: String) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -327,7 +339,7 @@ private fun WorkshopCard(workshop: Workshop) {
                     )
                     Spacer(modifier = Modifier.width(3.dp))
                     Text(
-                        text = workshop.address,
+                        text = localizedAddress,
                         style = MaterialTheme.typography.labelSmall,
                         color = TextSecondary,
                         maxLines = 1,
@@ -352,4 +364,16 @@ private fun WorkshopCard(workshop: Workshop) {
             }
         }
     }
+}
+
+private fun localizePlaceTokens(
+    text: String,
+    isKannada: Boolean,
+    channapatna: String,
+    karnataka: String
+): String {
+    if (!isKannada || text.isBlank()) return text
+    return text
+        .replace("Channapatna", channapatna)
+        .replace("Karnataka", karnataka)
 }
