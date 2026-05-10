@@ -8,7 +8,7 @@ package com.example.channapatna_namma_pride.model
 sealed class Resource<out T> {
     object Loading : Resource<Nothing>()
     data class Success<T>(val data: T) : Resource<T>()
-    data class Error(val message: String, val exception: Throwable? = null) : Resource<Nothing>()
+    data class Error(val message: String? = null, val messageId: Int? = null, val exception: Throwable? = null) : Resource<Nothing>()
 
     val isLoading get() = this is Loading
     val isSuccess get() = this is Success
@@ -16,5 +16,6 @@ sealed class Resource<out T> {
 
     fun getOrNull(): T? = (this as? Success)?.data
     fun errorMessageOrNull(): String? = (this as? Error)?.message
+    fun errorMessageIdOrNull(): Int? = (this as? Error)?.messageId
 }
 
