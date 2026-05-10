@@ -17,8 +17,6 @@ import androidx.compose.ui.unit.sp
 import com.example.channapatna_namma_pride.R
 import com.example.channapatna_namma_pride.ui.theme.LacquerRed
 import com.example.channapatna_namma_pride.ui.theme.TextPrimary
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Icon
 
 /**
@@ -41,13 +39,14 @@ fun BrandHeader(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Icon(
-                Icons.Default.Menu,
-                contentDescription = "Menu",
-                tint = TextPrimary,
-                modifier = Modifier.size(24.dp)
+            // App Logo instead of hamburger menu
+            Image(
+                painter = painterResource(id = R.drawable.app_logo),
+                contentDescription = stringResource(R.string.app_name),
+                modifier = Modifier
+                    .size(40.dp)
             )
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(12.dp))
             Column {
                 Text(
                     text = stringResource(R.string.brand_line_1),
